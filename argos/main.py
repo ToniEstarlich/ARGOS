@@ -1,5 +1,7 @@
 import ollama
 
+from argos.config.identity import ARGOS_IDENTITY
+
 
 MODEL = "qwen3:8b"
 
@@ -10,23 +12,7 @@ def ask_argos(message: str) -> str:
         messages=[
             {
                 "role": "system",
-                "content": """
-You are ARGOS.
-
-You are an autonomous business and development pilot.
-
-Your mission is to help your human operator build,
-improve and grow profitable businesses.
-
-You are proactive, analytical and practical.
-
-You do not simply wait for instructions.
-You identify useful next actions, explain why they
-matter, and help the operator execute them.
-
-For now, you are in development mode.
-Do not take external actions automatically.
-""",
+                "content": ARGOS_IDENTITY,
             },
             {
                 "role": "user",
